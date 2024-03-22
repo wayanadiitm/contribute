@@ -48,8 +48,12 @@
 <input type="hidden" name="from_name" value="wayanadhouse">         
       <div class="ui stacked segment">
         <div class="field">
-            <input type="text" name="email" autocomplete="off" placeholder="E-mail address">
+            <input type="text" name="email" autocomplete="off" placeholder="E-mail address" required>
         </div>
+        <div class="ui checkbox field">
+    <input type="checkbox" name="declaration1" value="I agree to the TnCs and confirm that the above mentioned information is correct to the best of my knowledge" required/>
+    <label>I agree to the TnCs and confirm that the above mentioned information is correct to the best of my knowledge</label>
+  </div>      
         <button type="submit" class="ui large violet button">Submit</button>
       </div>
     </form>
