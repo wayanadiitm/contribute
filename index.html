@@ -67,9 +67,9 @@
 </select></div>   
            <div class="field">
     <label>Why do you wish to contribute? (Mention briefly, the relevant skills do you have in this domain)</label>
-    <textarea rows="2"></textarea>
+    <textarea rows="2" required></textarea>
   </div> 
-        <input type="file" (change)="fileEvent($event)" class="inputfile" id="embedpollfileinput" />
+        <input type="file" class="inputfile" accept="application/pdf" id="fileinput" required/>
            <div class="field">	      
 <label>Please show some of your best contents (design/doc work) in ONE file</label>
   <label for="embedpollfileinput" class="ui green right floated button">
