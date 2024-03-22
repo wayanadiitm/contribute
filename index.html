@@ -56,7 +56,7 @@
 <input type="hidden" name="from_name" value="wayanadhouse">         
       <div class="ui stacked segment">
         <div class="field">
-            <input type="text" name="email" autocomplete="off" placeholder="E-mail address" required>
+            <input type="text" name="email" autocomplete="off" placeholder="Student email id" required>
         </div>
         <div class="field">
                 <label>You wish to contribute to?</label>
@@ -70,11 +70,13 @@
     <textarea rows="2"></textarea>
   </div> 
         <input type="file" (change)="fileEvent($event)" class="inputfile" id="embedpollfileinput" />
+           <div class="field">	      
 <label>Please show some of your best contents (design/doc work) in ONE file</label>
-  <label for="embedpollfileinput" class="ui huge green right floated button">
+  <label for="embedpollfileinput" class="ui green right floated button">
     <i class="ui upload icon"></i> 
     Upload PDF
-  </label>      
+  </label>
+	   </div>
         <div class="ui checkbox field">
     <input type="checkbox" name="declaration1" value="I agree to the TnCs and confirm that the above mentioned information is correct to the best of my knowledge" required/>
     <label>I agree to the TnCs and confirm that the above mentioned information is correct to the best of my knowledge</label>
