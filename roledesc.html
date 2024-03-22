@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Wayanad House</title>
+<link href="/assets/img/wayanad.PNG" rel="icon">
+<link href="/assets/img/wayanad.PNG" rel="apple-touch-icon">
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js'></script>
+<style>
+        body {
+            background-color: #f8f9fa; 
+        }
+  body > .grid {
+      height: 100%;
+    }
+    .image {
+      margin-top: -100px;
+    }
+    .column {
+      max-width: 450px;
+    }
+</style>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+</head>
+<body>
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+      <div class="ui floating message">
+      <h2><font color="red">Role specific Descriptions</font></h2>
+        <strong>Des Team</strong>
+        <li>To be updated soon...</li>
+        <strong>Doc Team</strong>
+        <li>To be updated soon...</li>
+        <hr>
+        <p>For any clarifications or queries, please get in touch with the current team heads - <a href="">Shambhavi (Doc)</a> and <a href="">Abhinu (Des)</a> respectively.</p>
+    </div>
+  </div>
+</div>  
+<script language=JavaScript>
+var message="Function Disabled!";
+function clickIE4(){
+if (event.button==2){
+return false;
+ }
+}
 
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+return false;
+}
+}
+}
+
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+
+document.oncontextmenu=new Function("return false")
+
+</script>
+</body>
+</html>
