@@ -41,21 +41,16 @@
       Currently, we have a vacancy for 2 positions for our house multimedia team
     </div>
         
-    <form class="ui large form">
+    <form action="https://api.web3forms.com/submit" name="apply-wayanadteam" method="POST" class="ui large form">
+   <input type="hidden" name="apikey" value="5a961a27-4391-4a0b-856a-265509cafadc">
+<input type="hidden" name="subject" value="Application Submission | Contribute to House Team">
+<input type="hidden" name="redirect" value="https://wayanad.netlify.app/success">
+<input type="hidden" name="from_name" value="wayanadhouse">         
       <div class="ui stacked segment">
         <div class="field">
-          <div class="ui left icon input">
-            <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
-          </div>
+            <input type="text" name="email" autocomplete="off" placeholder="E-mail address">
         </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="Password">
-          </div>
-        </div>
-        <div class="ui fluid large teal submit button">Submit</div>
+        <button type="submit" class="ui large violet button">Submit</button>
       </div>
     </form>
   </div>
