@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<style>
+.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url('https://cdn.dribbble.com/users/2973561/screenshots/5757826/media/221d6bfc1960ab98a7585fcc2a4d0181.gif')50% 50% no-repeat #FBFBFB;
+}
+</style>
+<style>
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: red;
+}
+
+::selection {
+  color: white;
+  background: red;
+}
+</style>
+ <style>
+::-webkit-scrollbar {
+-webkit-appearance: none;
+}
+::-webkit-scrollbar {
+width: 7px;
+}
+::-webkit-scrollbar-track {
+background: transparent; 
+border:0px solid #fff;
+} 
+::-webkit-scrollbar-thumb {
+background: blue; 
+border:0px solid #fff;
+height:300px;
+border-radius:5px;
+}	
+</style>
+<script>
+$(window).load(function(){
+     $('.loader').fadeOut(4000);
+});	
+</script>
+<script language=JavaScript>
+//Disable right mouse click Script
+
+var message="Function Disabled!";
+
+function clickIE4(){
+if (event.button==2){
+return false;
+ }
+}
+
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+return false;
+}
+}
+}
+
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+
+document.oncontextmenu=new Function("return false")
+
+</script>
+</head>
+<body><div class="loader"></div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Website</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Info
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="">FAQs</a></li>
+              <li><a class="dropdown-item" href="">Important Dates</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="">User Portal</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mt-5"><br>
+    <h1>Welcome!</h1>
+    
+    <p style="text-align:justify;">
+</p>
+
+<center>
+<a href=""><button style="
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding */
+  text-align: center; /* Center text */
+  text-decoration: none; /* No underline */
+  display: inline-block; /* Display as a block element */
+  font-size: 16px; /* Font size */
+  border-radius: 5px; /* Rounded corners */
+  transition-duration: 0.4s; /* Transition duration */
+  cursor: pointer; /* Cursor on hover */
+  margin: 10px; /* Margin */
+  width: 150px; /* Width */
+  }
+  /* Button hover effect */
+  &:hover {
+    background-color: #3e8e41;
+    color: white;
+  }">
+  Register Here
+</button></a>
+
+</center>
+
+
+  </div>
+<br>
+  <footer class="bg-primary text-center text-white fixed-bottom">
+    <div class="container p-3"><a href="" style="text-decoration:none;color:white;font-family:sans-serif;font-size:17.5px;">&copy; 2023 Rights Reserved By Team</a>
+    </div>
+  </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
