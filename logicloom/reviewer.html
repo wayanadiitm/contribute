@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title></title>
+  <title>OEMS</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,8 +15,7 @@
 <div class="container content well">
 <div style="background-color: white; text-align: center;" class="row">
     <div class="col-md-2">
-    
-        <img class="img-reponsive" src="">
+        <img src="" style="max-width:100%;height:auto;">
     </div>
     <div class="col-md-10">
         <h3 align="center" style="color: #ff661a;">Logicloom 2.0 Automated Evaluation System</h3>
@@ -27,23 +26,22 @@
     <div class="col-md-4">
     </div>
     <div class="col-md-4 well">
-    <h3 style="border: 1px dotted green; width: 200px; ">Reviewer Login</h3>
+    <h3>Reviewer Login</h3>
     <br>
+      <marquee style="animation: marquee 15s linear infinite;" onmouseover="this.stop();" onmouseout="this.start();">
+        <h4><a style="color:red; font-weight:600;" href="">The online evaluation for Foundational participants end on March 2nd 2024</a></h4></marquee>
       <form method="post">
         <div class="form-group">
-          <label>Username</label>
-          <input type="text" class="form-control" name="" required>
+          <input type="text" class="form-control" id="username" name="username" autocomplete="off" placeholder="john@email.com" required>
         </div>
-        <div class="form-group">
           <label>Password</label>
-          <input type="password" class="form-control" name="" required>
+          <input type="password" class="form-control" id="password" name="password" autocomplete="off" placeholder="*******" required>
         </div>
-        <button type="submit" class="btn btn-primary" name="submit">Login</button>
+        <button type="submit" class="btn btn-danger" name="submit">Authenticate</button>
        
       </form>
-      <br><br>
-      <h4><a href="">Forgot Password?</a></h4>
-      <h4><a style="color:red; font-weight:600" href="">click here</a></h4>
+      <br>
+      <h4 style="float:right;"><a href="" style="text-decoration:none;">Help?</a></h4>
     </div>
     <div class="col-md-4">
     </div>
@@ -53,8 +51,36 @@
 </div>
 <div align="center" class="row content hidden-print">
 <div class="col-xs-12">
-<p>footer</p>
+<p>&copy; 2021 Online Exam Management System v1</p>
 </div>
 </div>
+ </script>
+<script language=JavaScript>
+var message="Function Disabled!";
+function clickIE4(){
+if (event.button==2){
+return false;
+ }
+}
+
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+return false;
+}
+}
+}
+
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+
+document.oncontextmenu=new Function("return false")
+
+</script>  
 </body>
 </html>
