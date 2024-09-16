@@ -2,11 +2,9 @@
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-## 
+Organizers: Shambhavi
 
-## Organizers: Shambhavi
-
-## Volunteers: Rohit, Yuvalakshmi
+Volunteers: Rohit, Yuvalakshmi
 
 Note: Cores and mentors  \- Advait, Somsubhra & Sayan or Goutham are only responsible for the Problem statement/core challenge related matters (as long as the subject “ML” is concerned) in this edition.
 
