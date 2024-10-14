@@ -10,47 +10,76 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
 
 <style>
-  body {
-	background-color: lightskyblue;
-	font-family: sans-serif;
-	color: darkslategrey;
-	font-size: medium;
-	min-height: 95vh;
-}
-#header {
-	padding: 0 1rem;
-}
-article {
-	background-color: lightcyan;
-	border: 1px solid lightseagreen;
-	min-height: 90vh;
-	min-height: 600px;
-}
-p {
-	text-indent: 2rem;
-}
-footer, #header {
-	background-color: firebrick;
-	border: 1px solid tomato;
-	color: lavenderblush;
-	display: block;
-	margin: 0.5rem auto;
-}
-article, footer p {
-	display: block;
-	margin: 0 auto;
-	max-width: 75vw;
-	padding: 0.5rem;
-}
-</style>
+        body {
+            background-color: lightskyblue;
+            font-family: sans-serif;
+            color: darkslategrey;
+            font-size: medium;
+            min-height: 95vh;
+        }
+        #header {
+            padding: 0 1rem;
+        }
+        article {
+            background-color: lightcyan;
+            border: 1px solid lightseagreen;
+            min-height: 90vh;
+            min-height: 600px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+        .grid-item {
+            background: white;
+            border: 1px solid lightseagreen;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+        footer, #header {
+            background-color: firebrick;
+            border: 1px solid tomato;
+            color: lavenderblush;
+            display: block;
+            margin: 0.5rem auto;
+        }
+        article, footer p {
+            display: block;
+            margin: 0 auto;
+            max-width: 75vw;
+            padding: 0.5rem;
+        }
+        p {
+            text-indent: 2rem;
+        }
+    </style>
 </head>
 <body>
 <div id="header">
 			<h1>Welcome to Wayanad House, IIT Madras</h1>
 		</div>
 		<article>
-			<p></p>
-			<p></p>
+			<div class="grid-item">
+            <i class="fas fa-home"></i>
+            <h3><a href="#main-site">Proceed to Main Site</a></h3>
+        </div>
+        <div class="grid-item">
+            <i class="fas fa-calendar-alt"></i>
+            <h3><a href="#academic-calendar">Academic Calendar</a></h3>
+        </div>
+        <div class="grid-item">
+            <i class="fas fa-file-alt"></i>
+            <h3><a href="#grading-document">Grading Document</a></h3>
+        </div>
+        <div class="grid-item">
+            <i class="fas fa-users"></i>
+            <h3><a href="#governing-body">Governing Body</a></h3>
+        </div>
 		</article>
 <script language=JavaScript>
 var message="Function Disabled!";
