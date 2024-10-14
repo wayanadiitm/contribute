@@ -27,7 +27,7 @@
             min-height: 600px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 2rem;
+            gap: 1rem;
             padding: 1rem;
         }
         .grid-item {
@@ -37,6 +37,7 @@
             text-align: center;
             border-radius: 8px;
             transition: transform 0.2s;
+	    gap: 1rem;
         }
         .grid-item:hover {
             transform: scale(1.05);
@@ -57,6 +58,20 @@
         p {
             text-indent: 2rem;
         }
+	a {
+    text-decoration: none; /* Remove underline */
+    color: darkslategrey; /* Link color */
+    font-weight: bold; /* Make links bold */
+    display: block; /* Make the entire area clickable */
+    margin-top: 0.5rem; /* Space above the link */
+}
+
+a:hover {
+    color: firebrick; /* Change color on hover */
+    text-shadow: 0 0 5px lavenderblush; /* Add a subtle glow effect */
+    transform: scale(1.1); /* Slightly increase size on hover */
+    transition: all 0.2s ease; /* Smooth transition for effects */
+}
     </style>
 </head>
 <body>
