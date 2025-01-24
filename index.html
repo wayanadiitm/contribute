@@ -21,7 +21,7 @@
     .marquee {
         overflow: hidden;
         white-space: nowrap;
-        animation: marquee 10s linear infinite;
+        animation: marquee 20s linear infinite;
     }
     .marquee:hover {
         animation-play-state: paused;
@@ -49,16 +49,16 @@
                     <h2 class="text-2xl font-bold">Programme Updates</h2>
                 </div>
                 <div class="mt-6 text-gray-700">
-                    <marquee class="marquee">Jan 2025 term begins on 10th Jan 2025 • IIT Madras And IIT Palakkad launch collaborative educational initiative (offline credit transferable courses) for Data Science students • Quiz 2 is scheduled on 1st Dec 2024 • End sem exams are scheduled on 22nd Dec 2024 • Paradox in Margazhi fest will be held during 4th - 7th January 2025.</marquee>
+                <marquee class="marquee programme-updates-marquee">Loading Programme Updates...</marquee>
                 </div>
             </div>
             <div class="bg-white p-8 rounded-lg shadow-lg">
                 <div class="flex items-center space-x-4">
                     <i class="fas fa-bullhorn text-red-600 text-2xl"></i>
-                    <h2 class="text-2xl font-bold">House Updates</h2>
+                    <h2 class="text-2xl font-bold">Latest @ Wayanad</h2>
                 </div>
                 <div class="mt-6 text-gray-700">
-                    <marquee class="marquee">Wayanad begins the 4th event of its ML series initiative • Wayanad robotics club hosts a session on Tinkercad and Arduino series • Wayanad ML Series team completes a successful PAN-BS AI-ML Challenge with 3 challenging tracks, 400+ participants. Final session will be live-streamed on IITM BS YT channel, featuring Mr. Piyush Wairale, course instructor as the guest speaker and judge.</marquee>
+<marquee class="marquee house-updates-marquee">Loading House Updates...</marquee>
                 </div>
             </div>
         </div>
@@ -125,5 +125,53 @@
     <footer class="bg-red-600 text-white py-6 mt-16">
         <p class="text-center">Note: The page is served from the Wayanad23 archives and may be updated occassionally. Designed by Webad (2023 tenure).</p>
     </footer>
+<script>
+    const jsonURL = '/contribute/updates.json';
+
+    fetch(jsonURL)
+        .then(response => response.json())
+        .then(data => {
+            // Update Programme Updates marquee
+            const programmeMarquee = document.querySelector('.programme-updates-marquee');
+            if (programmeMarquee) {
+                programmeMarquee.innerText = data.programmeUpdates.join(' • ');
+            }
+
+            // Update House Updates marquee
+            const houseMarquee = document.querySelector('.house-updates-marquee');
+            if (houseMarquee) {
+                houseMarquee.innerText = data.houseUpdates.join(' • ');
+            }
+        })
+        .catch(error => console.error('Error fetching updates:', error));
+</script>
+  <script language=JavaScript>
+var message="Function Disabled!";
+
+function clickIE4(){
+if (event.button==2){
+return false;
+ }
+}
+
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+return false;
+}
+}
+}
+
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+
+document.oncontextmenu=new Function("return false")
+
+</script>   
 </body>
 </html>
