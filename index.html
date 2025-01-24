@@ -8,172 +8,122 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
-
+<script src="https://cdn.tailwindcss.com"></script>
 <style>
-        body {
-            background-color: lightskyblue;
-            font-family: sans-serif;
-            color: darkslategrey;
-            font-size: medium;
-            min-height: 95vh;
+    body {
+        background-color: #f8fafc;
+        color: #1e293b;
+        font-family: 'Inter', sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .marquee {
+        overflow: hidden;
+        white-space: nowrap;
+        animation: marquee 10s linear infinite;
+    }
+    .marquee:hover {
+        animation-play-state: paused;
+    }
+    @keyframes marquee {
+        from {
+            transform: translateX(100%);
         }
-        #header {
-            padding: 0 1rem;
+        to {
+            transform: translateX(-100%);
         }
-        article {
-            background-color: lightcyan;
-            border: 1px solid lightseagreen;
-            min-height: 90vh;
-            min-height: 600px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-            padding: 1rem;
-        }
-        .grid-item {
-            background: white;
-            border: 1px solid lightseagreen;
-            padding: 1rem;
-            text-align: center;
-            border-radius: 8px;
-            transition: transform 0.2s;
-	    gap: 1rem;
-        }
-        .grid-item:hover {
-            transform: scale(1.05);
-        }
-        footer, #header {
-            background-color: firebrick;
-            border: 1px solid tomato;
-            color: lavenderblush;
-            display: block;
-            margin: 0.5rem auto;
-        }
-        article, footer p {
-            display: block;
-            margin: 0 auto;
-            max-width: 75vw;
-            padding: 0.5rem;
-        }
-        p {
-            text-indent: 2rem;
-        }
-	a {
-    text-decoration: none; /* Remove underline */
-    color: darkslategrey; /* Link color */
-    font-weight: bold; /* Make links bold */
-    display: block; /* Make the entire area clickable */
-    margin-top: 0.5rem; /* Space above the link */
-}
-
-a:hover {
-    color: firebrick; /* Change color on hover */
-    text-shadow: 0 0 5px lavenderblush; /* Add a subtle glow effect */
-    transform: scale(1.1); /* Slightly increase size on hover */
-    transition: all 0.2s ease; /* Smooth transition for effects */
-}
-    </style>
+    }
+</style>
 </head>
 <body>
-<div id="header">
-			<h1>Welcome to Wayanad House, IIT Madras</h1>
-		</div>
-	<div class="grid-item">
-            <i class="fas fa-bullhorn"></i> Programme Updates
-            <h5><marquee style="animation: marquee 15s linear infinite;" onmouseover="this.stop();" onmouseout="this.start();">Jan 2025 term begins on 10th Jan 2025 • IIT Madras And IIT Palakkad launch collaborative educational initiative (offline credit transferable courses) for Data Science students • Quiz 2 is scheduled on 1st Dec 2024. • End sem exams are scheduled on 22nd Dec 2024. • Paradox in Margazhi fest will be held during 4th - 7th January 2025.</marquee></h5>
-        <br>
-            <i class="fas fa-bullhorn"></i> House Updates
-            <h5><marquee style="animation: marquee 15s linear infinite;" onmouseover="this.stop();" onmouseout="this.start();">Wayanad begins the 4th event of it's ML series initiative • Wayanad robotics club hosts a session on Tinkercad and arduino series • Wayanad ML Series team completes a successful PAN-BS AI-ML Challenge with 3 challenging tracks, 400+ participants. Final session will be live-streamed on IITM BS YT channel, featuring Mr. Piyush Wairale, course instructor as the guest speaker and judge.</marquee></h5>
+    <header class="bg-red-600 text-white py-6 shadow-md">
+        <h1 class="text-center text-3xl font-extrabold">Welcome to Wayanad House, IIT Madras</h1>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-bullhorn text-red-600 text-2xl"></i>
+                    <h2 class="text-2xl font-bold">Programme Updates</h2>
+                </div>
+                <p class="mt-6 text-gray-700">
+                    <marquee class="marquee">Jan 2025 term begins on 10th Jan 2025 • IIT Madras And IIT Palakkad launch collaborative educational initiative (offline credit transferable courses) for Data Science students • Quiz 2 is scheduled on 1st Dec 2024 • End sem exams are scheduled on 22nd Dec 2024 • Paradox in Margazhi fest will be held during 4th - 7th January 2025.</marquee>
+                </p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-bullhorn text-red-600 text-2xl"></i>
+                    <h2 class="text-2xl font-bold">House Updates</h2>
+                </div>
+                <p class="mt-6 text-gray-700">
+                    <marquee class="marquee">Wayanad begins the 4th event of its ML series initiative • Wayanad robotics club hosts a session on Tinkercad and Arduino series • Wayanad ML Series team completes a successful PAN-BS AI-ML Challenge with 3 challenging tracks, 400+ participants. Final session will be live-streamed on IITM BS YT channel, featuring Mr. Piyush Wairale, course instructor as the guest speaker and judge.</marquee>
+                </p>
+            </div>
         </div>
-	<!--<center><img src="assets/teaser.png" style="max-width:100%;height:auto;"></center>-->
-		<article>
-			<a href="https://sites.google.com/ds.study.iitm.ac.in/wayanad-house/main" target="_blank"><div class="grid-item">
-            <i class="fas fa-home"></i>
-            <h3>Proceed to Main site</h3>
-        </div></a>
-			<!--<a href="" target="_blank"><div class="grid-item">
-            <i class="fas fa-sign-in-alt"></i>
-            <h3>Sign into house portal</h3>
-        </div></a>-->
-			<h3>Important Links</h3>
-        <a href="https://study.iitm.ac.in/ds/academic_calendar.html" target="_blank"><div class="grid-item">
-            <i class="fas fa-calendar-alt"></i>
-            <h3>Academic Calendar (till Aug 2025)</h3>
-        </div></a>
-	<a href="https://ds.study.iitm.ac.in/auth/login" target="_blank"><div class="grid-item">
-            <i class="fas fa-sign-in-alt"></i>
-            <h3>Student Portal (DS students - Degree)</h3>
-        </div></a>
-	<a href="https://es.study.iitm.ac.in/auth/login" target="_blank"><div class="grid-item">
-            <i class="fas fa-sign-in-alt"></i>
-            <h3>Student Portal (ES students - Degree)</h3>
-        </div></a>
-	<a href="https://app.diploma.iitm.ac.in/auth/login" target="_blank"><div class="grid-item">
-            <i class="fas fa-sign-in-alt"></i>
-            <h3>Student Portal (Diploma Only students)</h3>
-        </div></a>
-	<a href="https://seek.study.iitm.ac.in" target="_blank"><div class="grid-item">
-            <i class="fas fa-sign-in-alt"></i>
-            <h3>Course Portal (Seek)</h3>
-        </div></a>
-	<a href="https://drive.google.com/file/d/1reCLaan2aUfjcAvgXEFne7j3p1j93ZcQ/view" target="_blank"><div class="grid-item">
-            <i class="fas fa-file-alt"></i>
-            <h3>Student Handbook (BS in DS)</h3>
-        </div></a>
-	<a href="https://docs.google.com/document/d/e/2PACX-1vSD1ldcEz7GatzyEJyMkQMZmSyf4INBZ8AlD3b8SV8jksl7HgYyKqOsR5QjuVYz8A/pub" target="_blank"><div class="grid-item">
-            <i class="fas fa-file-alt"></i>
-            <h3>Student Handbook (BS in ES)</h3>
-        </div></a>
-        <a href="https://docs.google.com/document/d/e/2PACX-1vRBH1NuM3ML6MH5wfL2xPiPsiXV0waKlUUEj6C7LrHrARNUsAEA1sT2r7IHcFKi8hvQ45gSrREnFiTT/pub" target="_blank"><div class="grid-item">
-            <i class="fas fa-file-alt"></i>
-            <h3>Grading Document - Data Science stream</h3>
-        </div></a>
-	 <a href="https://docs.google.com/document/d/158tmK_QXG4QuvPJCapd0LmvOSsKYzW3X1OXnYdiOCDQ/pub" target="_blank"><div class="grid-item">
-            <i class="fas fa-file-alt"></i>
-            <h3>Grading Document - Electronic Systems</h3>
-        </div></a>
-	<a href="https://discourse.onlinedegree.iitm.ac.in" target="_blank"><div class="grid-item">
-            <i class="fas fa-file-alt"></i>
-            <h3>Discourse Forum</h3>
-        </div></a>
-	<a href="https://study-supportdesk.freshdesk.com/support/login" target="_blank"><div class="grid-item">
-            <i class="fas fa-file-alt"></i>
-            <h3>BS Support - Freshdesk</h3>
-        </div></a>
-	<a href="https://placements.study.iitm.ac.in" target="_blank"><div class="grid-item">
-            <i class="fas fa-file-alt"></i>
-            <h3>BS Placement Portal</h3>
-        </div></a>
-<div id="header">
-			<p>The site is maintained by the Wayanad UHC 2023 team</p>
-		</div>       
-		</article>
-<script language=JavaScript>
-var message="Function Disabled!";
-function clickIE4(){
-if (event.button==2){
-return false;
- }
-}
 
-function clickNS4(e){
-if (document.layers||document.getElementById&&!document.all){
-if (e.which==2||e.which==3){
-return false;
-}
-}
-}
+        <section class="mt-16">
+            <h2 class="text-3xl font-extrabold text-center mb-12">Important Links</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="https://sites.google.com/ds.study.iitm.ac.in/wayanad-house/main" target="_blank" class="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                    <i class="fas fa-home text-blue-500 text-3xl"></i>
+                    <h3 class="mt-4 text-lg font-semibold">Proceed to Wayanad</h3>
+                </a>
+                <a href="https://study.iitm.ac.in/ds/academic_calendar.html" target="_blank" class="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                    <i class="fas fa-calendar-alt text-blue-500 text-3xl"></i>
+                    <h3 class="mt-4 text-lg font-semibold">Academic Calendar (2024-2025)</h3>
+                </a>
+                <a href="https://ds.study.iitm.ac.in/auth/login" target="_blank" class="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                    <i class="fas fa-sign-in-alt text-blue-500 text-3xl"></i>
+                    <h3 class="mt-4 text-lg font-semibold">Student Portal (DS students - Degree)</h3>
+                </a>
+                <a href="https://es.study.iitm.ac.in/auth/login" target="_blank" class="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                    <i class="fas fa-sign-in-alt text-blue-500 text-3xl"></i>
+                    <h3 class="mt-4 text-lg font-semibold">Student Portal (ES students - Degree)</h3>
+                </a>
+                <a href="https://app.diploma.iitm.ac.in/auth/login" target="_blank" class="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                    <i class="fas fa-sign-in-alt text-blue-500 text-3xl"></i>
+                    <h3 class="mt-4 text-lg font-semibold">Student Portal (DAD)</h3>
+                </a>
+                <a href="https://seek.study.iitm.ac.in" target="_blank" class="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                    <i class="fas fa-sign-in-alt text-blue-500 text-3xl"></i>
+                    <h3 class="mt-4 text-lg font-semibold">Course Seek Portal</h3>
+                </a>
+                <a href="https://drive.google.com/file/d/1reCLaan2aUfjcAvgXEFne7j3p1j93ZcQ/view" target="_blank" class="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                    <i class="fas fa-file-alt text-blue-500 text-3xl"></i>
+                    <h3 class="mt-4 text-lg font-semibold">Student Handbook (BS in DS)</h3>
+                </a>
+                <a href="https://docs.google.com/document/d/e/2PACX-1vSD1ldcEz7GatzyEJyMkQMZmSyf4INBZ8AlD3b8SV8jksl7HgYyKqOsR5QjuVYz8A/pub" target="_blank" class="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                    <i class="fas fa-file-alt text-blue-500 text-3xl"></i>
+                    <h3 class="mt-4 text-lg font-semibold">Student Handbook (BS in ES)</h3>
+                </a>
+                <a href="https://docs.google.com/document/d/e/2PACX-1vRBH1NuM3ML6MH5wfL2xPiPsiXV0waKlUUEj6C7LrHrARNUsAEA1sT2r7IHcFKi8hvQ45gSrREnFiTT/pub" target="_blank" class="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                    <i class="fas fa-file-alt text-blue-500 text-3xl"></i>
+                    <h3 class="mt-4 text-lg font-semibold">Grading Document - Data Science stream (Jan 2025)</h3>
+                </a>
+                <a href="https://docs.google.com/document/d/158tmK_QXG4QuvPJCapd0LmvOSsKYzW3X1OXnYdiOCDQ/pub" target="_blank" class="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                    <i class="fas fa-file-alt text-blue-500 text-3xl"></i>
+                    <h3 class="mt-4 text-lg font-semibold">Grading Document - Electronic Systems (Sep 2024)</h3>
+                </a>
+                <a href="https://discourse.onlinedegree.iitm.ac.in" target="_blank" class="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                    <i class="fas fa-comments text-blue-500 text-3xl"></i>
+                    <h3 class="mt-4 text-lg font-semibold">Discourse Forum</h3>
+                </a>
+                <a href="https://study-supportdesk.freshdesk.com/support/login" target="_blank" class="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                    <i class="fas fa-life-ring text-blue-500 text-3xl"></i>
+                    <h3 class="mt-4 text-lg font-semibold">BS Support - Freshdesk</h3>
+                </a>
+                <a href="https://placements.study.iitm.ac.in" target="_blank" class="block bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                    <i class="fas fa-briefcase text-blue-500 text-3xl"></i>
+                    <h3 class="mt-4 text-lg font-semibold">BS Placement Portal</h3>
+                </a>
+            </div>
+        </section>
+    </main>
 
-if (document.layers){
-document.captureEvents(Event.MOUSEDOWN);
-document.onmousedown=clickNS4;
-}
-else if (document.all&&!document.getElementById){
-document.onmousedown=clickIE4;
-}
-
-document.oncontextmenu=new Function("return false")
-
-</script>
+    <footer class="bg-red-600 text-white py-6 mt-16">
+        <p class="text-center">Note: The page is served from the Wayanad23 archives and may be updated occassionally.</p>
+    </footer>
 </body>
 </html>
