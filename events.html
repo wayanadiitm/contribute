@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="google" content="notranslate" />
+<title>Wayanad House</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    body {
+        background-color: #f8fafc;
+        color: #1e293b;
+        font-family: 'Inter', sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    header {
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    }
+</style>
+</head>
+<body>
+    <header class="bg-red-600 text-white py-6 shadow-md">
+        <h1 class="text-center text-3xl font-extrabold">Happenings @ Wayanad!!/h1>
+    </header>
 
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-bullhorn text-red-600 text-2xl"></i>
+                    <h2 class="text-2xl font-bold">Programme Updates</h2>
+                </div>
+                <div class="marquee-container programme-container mt-6 text-gray-700">
+                <div class="marquee-content programme-updates-marquee" style="display: none;"></div>
+                </div>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-bullhorn text-red-600 text-2xl"></i>
+                    <h2 class="text-2xl font-bold">Latest @ Wayanad</h2>
+                </div>
+                <div class="marquee-container house-container mt-6 text-gray-700">
+<div class="marquee-content house-updates-marquee" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-red-600 text-white py-6 mt-16">
+        <p class="text-center">Note: The page is served from the Wayanad23 archives and may be updated occassionally. &copy; Designed by Webad (2023 tenure).</p>
+        <div class="flex justify-center space-x-4 mt-4">
+                <a href="mailto:wayanad-studrel@ds.study.iitm.ac.in" target="_blank" class="text-white text-2xl hover:text-gray-300"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/company/wayanad-iitm/" target="_blank" class="text-white text-2xl hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/wayanad_iitm" target="_blank" class="text-white text-2xl hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/wayanad_iitm/" target="_blank" class="text-white text-2xl hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@wayanadhouseiitm" target="_blank" class="text-white text-2xl hover:text-gray-300"><i class="fab fa-youtube"></i></a>
+            </div>
+    </footer>
+<script>
+const jsonURL = '/notifs/updates.json';
+
+fetch(jsonURL)
+    .then(response => response.json())
+    .then(data => {
+        const programmeMarquee = document.querySelector('.programme-updates-marquee');
+        const programmePlaceholder = document.querySelector('.programme-container .loading-placeholder');
+        if (data.programmeUpdates.length > 0) {
+            programmeMarquee.innerText = data.programmeUpdates.join(' • ');
+            programmeMarquee.style.display = 'block'; // Ensure marquee is shown
+            programmePlaceholder.style.display = 'none'; // Hide placeholder
+        }
+
+        const houseMarquee = document.querySelector('.house-updates-marquee');
+        const housePlaceholder = document.querySelector('.house-container .loading-placeholder');
+        if (data.houseUpdates.length > 0) {
+            houseMarquee.innerText = data.houseUpdates.join(' • ');
+            houseMarquee.style.display = 'block'; // Ensure marquee is shown
+            housePlaceholder.style.display = 'none'; // Hide placeholder
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching updates:', error);
+    });
+</script>
+  <script language=JavaScript>
+var message="Function Disabled!";
+
+function clickIE4(){
+if (event.button==2){
+return false;
+ }
+}
+
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+return false;
+}
+}
+}
+
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+
+document.oncontextmenu=new Function("return false")
+
+</script>   
+</body>
+</html>
