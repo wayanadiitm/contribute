@@ -25,31 +25,13 @@
 </head>
 <body>
     <header class="bg-red-600 text-white py-6 shadow-md">
-        <h1 class="text-center text-3xl font-extrabold">Happenings @ Wayanad!!/h1>
+        <h1 class="text-center text-3xl font-extrabold">Happenings @ Wayanad!!</h1>
     </header>
 
     <main class="container mx-auto px-4 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div class="bg-white p-8 rounded-lg shadow-lg">
-                <div class="flex items-center space-x-4">
-                    <i class="fas fa-bullhorn text-red-600 text-2xl"></i>
-                    <h2 class="text-2xl font-bold">Programme Updates</h2>
-                </div>
-                <div class="marquee-container programme-container mt-6 text-gray-700">
-                <div class="marquee-content programme-updates-marquee" style="display: none;"></div>
-                </div>
-            </div>
-            <div class="bg-white p-8 rounded-lg shadow-lg">
-                <div class="flex items-center space-x-4">
-                    <i class="fas fa-bullhorn text-red-600 text-2xl"></i>
-                    <h2 class="text-2xl font-bold">Latest @ Wayanad</h2>
-                </div>
-                <div class="marquee-container house-container mt-6 text-gray-700">
-<div class="marquee-content house-updates-marquee" style="display: none;"></div>
-                </div>
-            </div>
-        </div>
+        <div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 gap-10">
 
+        </div>
     </main>
 
     <footer class="bg-red-600 text-white py-6 mt-16">
@@ -62,31 +44,41 @@
                 <a href="https://www.youtube.com/@wayanadhouseiitm" target="_blank" class="text-white text-2xl hover:text-gray-300"><i class="fab fa-youtube"></i></a>
             </div>
     </footer>
-<script>
-const jsonURL = '/notifs/updates.json';
+    <script>
+    $(document).ready(function () {
+  const postsContainer = $('#posts-container');
 
-fetch(jsonURL)
-    .then(response => response.json())
-    .then(data => {
-        const programmeMarquee = document.querySelector('.programme-updates-marquee');
-        const programmePlaceholder = document.querySelector('.programme-container .loading-placeholder');
-        if (data.programmeUpdates.length > 0) {
-            programmeMarquee.innerText = data.programmeUpdates.join(' • ');
-            programmeMarquee.style.display = 'block'; // Ensure marquee is shown
-            programmePlaceholder.style.display = 'none'; // Hide placeholder
-        }
+  $.getJSON('/notifs/posts.json', function (data) {
+    data.forEach(post => {
+      const tagIcons = {
+        Announcement: 'fas fa-bullhorn text-red-600',
+        Update: 'fas fa-info-circle text-blue-600',
+        News: 'fas fa-newspaper text-green-600'
+      };
 
-        const houseMarquee = document.querySelector('.house-updates-marquee');
-        const housePlaceholder = document.querySelector('.house-container .loading-placeholder');
-        if (data.houseUpdates.length > 0) {
-            houseMarquee.innerText = data.houseUpdates.join(' • ');
-            houseMarquee.style.display = 'block'; // Ensure marquee is shown
-            housePlaceholder.style.display = 'none'; // Hide placeholder
-        }
-    })
-    .catch(error => {
-        console.error('Error fetching updates:', error);
+      const postBox = `
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+          <div class="flex items-center space-x-4">
+            <i class="${tagIcons[post.tag] || 'fas fa-tag text-gray-600'} text-2xl"></i>
+            <h2 class="text-2xl font-bold">${post.heading}</h2>
+          </div>
+          <img src="${post.imageUrl}" alt="${post.heading}" class="w-full h-48 object-cover mt-4 rounded-lg">
+          <div class="mt-6 text-gray-700">
+            <p>${post.description}</p>
+            <p class="text-sm text-gray-500 mt-2">Posted on ${post.postedDate} at ${post.time}</p>
+          </div>
+          <a href="${post.buttonLink}" class="mt-6 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
+            Learn More
+          </a>
+        </div>
+      `;
+
+      postsContainer.append(postBox);
     });
+  }).fail(function () {
+    console.error('Failed to fetch posts.');
+  });
+});
 </script>
   <script language=JavaScript>
 var message="Function Disabled!";
