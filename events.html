@@ -26,7 +26,7 @@
 </head>
 <body>
     <header class="bg-red-600 text-white py-6 shadow-md">
-        <h1 class="text-center text-3xl font-extrabold">Happenings @ Wayanad!!</h1>
+        <h1 class="text-center text-3xl font-extrabold">Happenings @ Wayanad <img src="success.webp" width="40" height="40"></h1>
     </header>
 
     <main class="container mx-auto px-4 py-12">
@@ -50,6 +50,7 @@
   const postsContainer = $('#posts-container');
 
   $.getJSON('/notifs/posts.json', function (data) {
+      data.sort((a, b) => b.postNum - a.postNum);
     data.forEach(post => {
       const tagIcons = {
         Announcement: 'fas fa-bullhorn text-red-600',
@@ -66,9 +67,9 @@
           <img src="${post.imageUrl}" alt="${post.heading}" class="w-full h-48 object-cover mt-4 rounded-lg">
           <div class="mt-6 text-gray-700">
             <p>${post.description}</p>
-            <p class="text-sm text-gray-500 mt-2">Posted on ${post.postedDate} at ${post.time}</p>
+            <p class="text-sm text-gray-500 mt-2">Posted on ${post.postedDate} by ${post.user}</p>
           </div>
-          <a href="${post.buttonLink}" class="mt-6 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
+          <a href="${post.buttonLink}" target="_blank" class="mt-6 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
             Learn More
           </a>
         </div>
