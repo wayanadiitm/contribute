@@ -26,7 +26,11 @@
 </head>
 <body>
     <header class="bg-red-600 text-white py-6 shadow-md">
-        <h1 class="text-center text-3xl font-extrabold">Happenings @ Wayanad <img src="success.webp" width="40" height="40"></h1>
+        <div class="flex items-center justify-center space-x-2">
+  <h1 class="text-3xl font-extrabold">Happenings @ Wayanad</h1>
+  <img src="success.webp" alt="Success Icon" width="40" height="40">
+</div>
+
     </header>
 
     <main class="container mx-auto px-4 py-12">
@@ -59,7 +63,7 @@
       };
 
       const postBox = `
-        <div class="bg-white p-8 rounded-lg shadow-lg">
+        <div class="bg-white p-8 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
           <div class="flex items-center space-x-4">
             <i class="${tagIcons[post.tag] || 'fas fa-tag text-gray-600'} text-2xl"></i>
             <h2 class="text-2xl font-bold">${post.heading}</h2>
