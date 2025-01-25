@@ -27,14 +27,14 @@
     .marquee {
         overflow: hidden;
         white-space: nowrap;
-        animation: scroll 20s linear infinite;
+        animation: marquee 20s linear infinite;
         display: block;
         width: 100%;
     }
     .marquee:hover {
         animation-play-state: paused;
     }
-    @keyframes scroll {
+    @keyframes marquee{
     0% {
         transform: translateX(100%);
     }
