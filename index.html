@@ -71,7 +71,7 @@
                     <div class="loading-placeholder">
                         <a href=""><img src="https://epochs.netlify.app/ajaxloader.gif" alt="Loading..." /></a>
                     </div>
-                <marquee class="marquee hidden"></marquee>
+                <marquee class="programme-updates-marquee" style="display: none;"></marquee>
                 </div>
             </div>
             <div class="bg-white p-8 rounded-lg shadow-lg">
@@ -83,7 +83,7 @@
                     <div class="loading-placeholder">
                         <a href=""><img src="https://epochs.netlify.app/ajaxloader.gif" alt="Loading..." /></a>
                     </div>
-<marquee class="marquee hidden"></marquee>
+<marquee class="house-updates-marquee" style="display: none;"></marquee>
                 </div>
             </div>
         </div>
@@ -158,27 +158,31 @@
             </div>
     </footer>
 <script>
-        const jsonURL = '/notifs/updates.json';
+const jsonURL = '/notifs/updates.json';
 
-        fetch(jsonURL)
-            .then(response => response.json())
-            .then(data => {
-                // Programme Updates
-                const programmeMarquee = document.querySelector('.programme-updates-marquee');
-                const programmePlaceholder = document.querySelector('.marquee-container:nth-child(1) .loading-placeholder');
-                programmeMarquee.innerText = data.programmeUpdates.join(' • ');
-                programmeMarquee.classList.remove('hidden');
-                programmePlaceholder.classList.add('hidden');
+fetch(jsonURL)
+    .then(response => response.json())
+    .then(data => {
+        const programmeMarquee = document.querySelector('.programme-updates-marquee');
+        const programmePlaceholder = document.querySelector('.programme-container .loading-placeholder');
+        if (data.programmeUpdates.length > 0) {
+            programmeMarquee.innerText = data.programmeUpdates.join(' • ');
+            programmeMarquee.style.display = 'block'; // Ensure marquee is shown
+            programmePlaceholder.style.display = 'none'; // Hide placeholder
+        }
 
-                // House Updates
-                const houseMarquee = document.querySelector('.house-updates-marquee');
-                const housePlaceholder = document.querySelector('.marquee-container:nth-child(2) .loading-placeholder');
-                houseMarquee.innerText = data.houseUpdates.join(' • ');
-                houseMarquee.classList.remove('hidden');
-                housePlaceholder.classList.add('hidden');
-            })
-            .catch(error => console.error('Error fetching updates:', error));
-    </script>
+        const houseMarquee = document.querySelector('.house-updates-marquee');
+        const housePlaceholder = document.querySelector('.house-container .loading-placeholder');
+        if (data.houseUpdates.length > 0) {
+            houseMarquee.innerText = data.houseUpdates.join(' • ');
+            houseMarquee.style.display = 'block'; // Ensure marquee is shown
+            housePlaceholder.style.display = 'none'; // Hide placeholder
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching updates:', error);
+    });
+</script>
   <script language=JavaScript>
 var message="Function Disabled!";
 
