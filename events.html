@@ -53,7 +53,10 @@
     $(document).ready(function () {
   const postsContainer = $('#posts-container');
 
-  $.getJSON('/notifs/posts.json', function (data) {
+  const jsonUrl = `/notifs/posts.json?t=${new Date().getTime()}`;
+
+  //$.getJSON('/notifs/posts.json', function (data) {
+    $.getJSON(jsonUrl, function (data) {
       data.sort((a, b) => b.postNum - a.postNum);
     data.forEach(post => {
       const tagIcons = {
