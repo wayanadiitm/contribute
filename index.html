@@ -24,17 +24,17 @@
         height: 50px;
         max-width: 100%;
     }
-    .marquee {
-        overflow: hidden;
+    .marquee-content {
+        display: inline-block;
         white-space: nowrap;
-        animation: marquee 20s linear infinite;
-        display: block;
-        width: 100%;
+        animation: scroll 20s linear infinite;
+        padding-left: 100%;
+        text-align: left;
     }
-    .marquee:hover {
+    .marquee-content:hover {
         animation-play-state: paused;
     }
-    @keyframes marquee{
+    @keyframes scroll{
     0% {
         transform: translateX(100%);
     }
@@ -72,7 +72,7 @@
                     <div class="loading-placeholder">
                         <a href=""><img src="https://epochs.netlify.app/ajaxloader.gif" alt="Loading..." /></a>
                     </div>
-                <marquee class="marquee programme-updates-marquee" style="display: none;"></marquee>
+                <div class="marquee-content programme-updates-marquee" style="display: none;"></div>
                 </div>
             </div>
             <div class="bg-white p-8 rounded-lg shadow-lg">
@@ -84,7 +84,7 @@
                     <div class="loading-placeholder">
                         <a href=""><img src="https://epochs.netlify.app/ajaxloader.gif" alt="Loading..." /></a>
                     </div>
-<marquee class="marquee house-updates-marquee" style="display: none;"></marquee>
+<div class="marquee-content house-updates-marquee" style="display: none;"></div>
                 </div>
             </div>
         </div>
