@@ -1,294 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wayanad House | IIT Madras</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
   <style>
     :root {
-      --primary: #0d9488;
-      --accent: #2563eb;
-      --bg: #f1f5f9;
-      --card-bg: #fff;
-      --text-main: #1e293b;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-      --radius: 18px;
-      --shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+      --primary: #005f73;
+      --accent: #ee9b00;
+      --bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --text-main: #1f2937;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --radius: 16px;
+      --shadow: 0 4px 16px rgba(0,0,0,0.05);
     }
-    html, body {
+
+    body, html {
       margin: 0;
       padding: 0;
-      background: var(--bg);
-      color: var(--text-main);
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
       height: 100%;
-    }
-    body {
+      background: var(--bg);
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
       display: flex;
-      min-height: 100vh;
+      flex-direction: column;
     }
+
+    /* FLEXBOX: MAIN LAYOUT */
+    .main-container {
+      display: flex;
+      flex: 1;
+    }
+
+    /* SIDEBAR */
     .sidebar {
-      background: var(--primary);
-      color: #fff;
-      width: 260px;
-      min-width: 220px;
-      padding: 32px 0 24px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 240px;
+      background-color: var(--primary);
+      color: white;
+      padding: 24px 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 2px 0 16px rgba(13, 148, 136, 0.08);
+      z-index: 1000;
     }
+
     .sidebar h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-      letter-spacing: 1px;
+      font-size: 1.8rem;
       text-align: center;
+      margin-bottom: 32px;
       line-height: 1.2;
     }
+
+    .sidebar h1 small {
+      font-size: 0.85rem;
+      font-weight: 400;
+    }
+
     .nav-links {
-      width: 100%;
       display: flex;
       flex-direction: column;
+      width: 100%;
+      padding: 0 16px;
       gap: 16px;
-      margin-bottom: 32px;
     }
+
     .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 12px 32px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
+      gap: 10px;
+      padding: 12px 16px;
       border-radius: var(--radius);
-      transition: background 0.18s;
-      font-size: 1.1rem;
+      transition: background 0.2s ease;
     }
-    .nav-links a:hover, .nav-links a:focus {
-      background: var(--accent);
-      outline: none;
+
+    .nav-links a:hover {
+      background-color: var(--accent);
     }
+
     .sidebar-footer {
       margin-top: auto;
+      padding: 16px;
       display: flex;
-      gap: 18px;
+      gap: 16px;
       justify-content: center;
     }
+
     .sidebar-footer a {
-      color: #fff;
-      font-size: 1.5rem;
-      transition: color 0.15s;
+      color: white;
+      font-size: 1.4rem;
+      transition: color 0.2s;
     }
-    .sidebar-footer a:hover, .sidebar-footer a:focus {
-      color: #dbeafe;
-    }
-    .main-content {
-      flex: 1;
-      padding: 40px 5vw 24px 5vw;
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-    }
-    .section-title {
-      font-size: 2rem;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      margin-bottom: 24px;
+
+    .sidebar-footer a:hover {
       color: var(--accent);
-      letter-spacing: 0.5px;
     }
-    .cards-grid {
+
+    /* MAIN CONTENT */
+    .main-content {
+      margin-left: 240px;
+      flex-grow: 1;
+      padding: 40px 5vw 60px 5vw;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 24px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .cards-grid, .links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
-      margin-bottom: 36px;
+      gap: 24px;
     }
+
+    .cards-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-bottom: 40px;
+    }
+
     .card {
       background: var(--card-bg);
+      padding: 24px;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 28px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
       border: 1px solid var(--border);
-      transition: box-shadow 0.18s, border 0.18s;
     }
-    .card:hover, .card:focus-within {
-      box-shadow: 0 8px 32px 0 rgba(37,99,235,0.10);
-      border-color: var(--accent);
-    }
-    .card .card-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: 1.3rem;
+
+    .card-header {
+      font-size: 1.2rem;
       font-weight: 600;
+      margin-bottom: 12px;
       color: var(--primary);
+      display: flex;
+      gap: 10px;
+      align-items: center;
     }
-    .card .marquee {
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-      height: 32px;
-      background: #f0fdfa;
-      border-radius: 8px;
-      padding: 6px 0 6px 8px;
-      font-size: 1rem;
+
+    .card p {
       color: var(--text-muted);
-      font-weight: 500;
-      animation: scroll-left 18s linear infinite;
+      margin: 0;
+      font-size: 1rem;
     }
-    @keyframes scroll-left {
-      0% { transform: translateX(100%);}
-      100% { transform: translateX(-100%);}
-    }
-    .card .marquee:hover {
-      animation-play-state: paused;
-      cursor: pointer;
-    }
+
     .links-grid {
-      display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
     }
+
     .link-card {
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 20px 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
+      padding: 20px;
       text-decoration: none;
       color: var(--text-main);
       border: 1px solid var(--border);
-      transition: box-shadow 0.18s, border 0.18s, transform 0.15s;
+      transition: transform 0.2s ease, border 0.2s;
     }
-    .link-card:hover, .link-card:focus {
-      box-shadow: 0 6px 24px 0 rgba(13,148,136,0.10);
+
+    .link-card:hover {
+      transform: translateY(-4px);
       border-color: var(--primary);
-      transform: translateY(-3px) scale(1.03);
-      outline: none;
     }
+
     .link-card i {
-      font-size: 2rem;
+      font-size: 1.6rem;
       color: var(--accent);
     }
-    .link-card .link-title {
-      font-size: 1.1rem;
+
+    .link-title {
       font-weight: 600;
-      margin-top: 4px;
+      margin-top: 10px;
     }
+
+    /* FOOTER */
     .footer {
-      margin-top: 36px;
+      background-color: var(--primary);
+      color: white;
+      padding: 20px 5vw;
       text-align: center;
-      color: var(--text-muted);
-      font-size: 1rem;
-      padding: 18px 0 0 0;
+      font-size: 0.95rem;
+      margin-top: auto; /* Ensures it stays at the bottom */
     }
+
+    .footer a {
+      color: #ffd166;
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
     @media (max-width: 900px) {
-      .main-content {
-        padding: 32px 2vw;
-      }
       .sidebar {
         width: 70px;
-        min-width: 70px;
-        padding: 18px 0;
       }
-      .sidebar h1 {
-        font-size: 1.1rem;
-        margin-bottom: 12px;
-        writing-mode: vertical-lr;
-        transform: rotate(180deg);
+
+      .main-content {
+        margin-left: 70px;
       }
-      .nav-links a {
-        padding: 10px 6px;
-        justify-content: center;
-        font-size: 1.2rem;
-      }
-      .nav-links a span {
+
+      .nav-links span {
         display: none;
       }
     }
+
     @media (max-width: 600px) {
-      body {
+      .main-container {
         flex-direction: column;
       }
+
       .sidebar {
-        width: 100vw;
-        min-width: 0;
         flex-direction: row;
-        justify-content: space-between;
+        width: 100%;
+        height: 60px;
+        padding: 0 10px;
         align-items: center;
-        padding: 10px 0;
-        position: sticky;
-        top: 0;
-        z-index: 10;
+        justify-content: space-between;
       }
-      .sidebar h1 {
-        writing-mode: unset;
-        transform: none;
-        font-size: 1rem;
-        margin: 0 0 0 10px;
+
+      .main-content {
+        margin-left: 0;
+        padding-top: 80px;
       }
+
       .nav-links {
         flex-direction: row;
-        gap: 8px;
-        margin: 0 10px 0 0;
+        gap: 12px;
       }
-      .main-content {
-        padding: 18px 2vw;
+
+      .sidebar h1 {
+        font-size: 1rem;
+        margin: 0;
+      }
+
+      .sidebar-footer {
+        display: none;
       }
     }
   </style>
 </head>
 <body>
-  <nav class="sidebar" aria-label="Sidebar">
-    <h1>Wayanad House<br><span style="font-weight:400;font-size:1rem;">IIT Madras</span></h1>
-    <div class="nav-links">
-      <a href="https://sites.google.com/ds.study.iitm.ac.in/wayanad-house/main" target="_blank"><i class="fas fa-home"></i><span>Student Life</span></a>
-      <a href="https://study.iitm.ac.in/ds/academic_calendar.html" target="_blank"><i class="fas fa-calendar-alt"></i><span>Academic Calendar</span></a>
-      <a href="https://discourse.onlinedegree.iitm.ac.in" target="_blank"><i class="fas fa-comments"></i><span>Forum</span></a>
-      <a href="https://study-supportdesk.freshdesk.com/support/login" target="_blank"><i class="fas fa-life-ring"></i><span>Support</span></a>
-    </div>
-    <div class="sidebar-footer">
-      <a href="mailto:wayanad-studrel@ds.study.iitm.ac.in" title="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.linkedin.com/company/wayanad-iitm/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://twitter.com/wayanad_iitm" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.instagram.com/wayanad_iitm/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.youtube.com/@wayanadhouseiitm" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-    </div>
-  </nav>
-  <main class="main-content">
-    <div class="section-title">Dashboard</div>
-    <div class="cards-grid">
-      <div class="card" tabindex="0">
-        <div class="card-header"><i class="fas fa-bullhorn"></i>Programme Updates</div>
-        <div class="marquee" title="Programme updates will scroll here.">Loading latest programme updates...</div>
+
+  <div class="main-container">
+    <nav class="sidebar" aria-label="Main Sidebar">
+      <h1>Wayanad House<br><small>IIT Madras</small></h1>
+      <div class="nav-links">
+        <a href="https://sites.google.com/ds.study.iitm.ac.in/wayanad-house/main" target="_blank">
+          <i class="fas fa-home"></i><span>Mian Site</span>
+        </a>
+        <a href="https://study.iitm.ac.in/ds/academic_calendar.html" target="_blank">
+          <i class="fas fa-calendar-alt"></i><span>Academic Calendar</span>
+        </a>
+        <a href="https://discourse.onlinedegree.iitm.ac.in" target="_blank">
+          <i class="fas fa-comments"></i><span>Academic Forum</span>
+        </a>
+        <a href="https://study-supportdesk.freshdesk.com/support/login" target="_blank">
+          <i class="fas fa-life-ring"></i><span>IITM Support</span>
+        </a>
       </div>
-      <div class="card" tabindex="0">
-        <div class="card-header"><i class="fas fa-bullhorn"></i>Latest @ Wayanad</div>
-        <div class="marquee" title="House updates will scroll here.">Loading latest house updates...</div>
+      <div class="sidebar-footer">
+        <a href="mailto:wayanad-studrel@ds.study.iitm.ac.in" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/company/wayanad-iitm/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com/wayanad_iitm" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/wayanad_iitm/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@wayanadhouseiitm" target="_blank"><i class="fab fa-youtube"></i></a>
       </div>
-    </div>
-    <div class="section-title">Quick Links</div>
-    <div class="links-grid">
-      <a class="link-card" href="https://ds.study.iitm.ac.in/auth/login" target="_blank">
-        <i class="fas fa-sign-in-alt"></i>
-        <div class="link-title">Student Portal (DS Degree)</div>
-      </a>
-      <a class="link-card" href="https://es.study.iitm.ac.in/auth/login" target="_blank">
-        <i class="fas fa-sign-in-alt"></i>
-        <div class="link-title">Student Portal (ES Degree)</div>
-      </a>
+    </nav>
+
+    <main class="main-content">
+      <div class="section-title">Dashboard</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-header"><i class="fas fa-calendar-check"></i>Key Dates</div>
+          <p>Quiz-1: 13th July<br>Quiz-2: 3rd Aug<br>End term: 31st Aug</p>
+        </div>
+        <div class="card">
+          <div class="card-header"><i class="fas fa-users"></i>House Activities</div>
+          <p>Please check the house mailer to keep track of events organized by us!</p>
+        </div>
+      </div>
+
+      <div class="section-title">Quick Links</div>
+      <div class="links-grid">
+        <a class="link-card" href="https://ds.study.iitm.ac.in/auth/login" target="_blank">
+          <i class="fas fa-sign-in-alt"></i><div class="link-title">Student Portal (DS Degree)</div>
+        </a>
+        <a class="link-card" href="https://es.study.iitm.ac.in/auth/login" target="_blank">
+          <i class="fas fa-sign-in-alt"></i><div class="link-title">Student Portal (ES Degree)</div>
+        </a>
+
       <a class="link-card" href="https://app.diploma.iitm.ac.in/auth/login" target="_blank">
         <i class="fas fa-sign-in-alt"></i>
         <div class="link-title">Student Portal (DAD)</div>
@@ -319,16 +332,8 @@
       </a>
     </div>
     <div class="footer">
-      <p>Page served from Wayanad23 archives. For queries, contact <a href="mailto:wayanad-studrel@ds.study.iitm.ac.in" style="color:var(--accent);text-decoration:underline;">Wayanad StudRel</a>.</p>
+      <p>Credit: Page served from Wayanad24 archives.</p>
     </div>
   </main>
-  <script>
-    setTimeout(() => {
-      document.querySelectorAll('.marquee')[0].textContent =
-        "";
-      document.querySelectorAll('.marquee')[1].textContent =
-        "";
-    }, 1200);
-  </script>
 </body>
 </html>
